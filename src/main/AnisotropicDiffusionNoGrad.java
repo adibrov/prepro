@@ -3,6 +3,8 @@ package main;
 import com.sun.javafx.image.impl.ByteBgra;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.Image;
+//import javafx.scene.image.PixelFormat;
+import javafx.scene.image.WritableImage;
 import org.jocl.*;
 
 import javax.imageio.ImageIO;
@@ -11,6 +13,7 @@ import java.awt.image.DataBufferByte;
 import java.io.*;
 
 import static org.jocl.CL.*;
+import com.sun.prism.PixelFormat;
 
 /**
  * Created by dibrov on 12/04/17.
@@ -39,6 +42,7 @@ public class AnisotropicDiffusionNoGrad {
     float K;
     float D0;
     int steps =  0; ;
+    WritableImage wi;
 
 
     public void setSteps(int steps) {
@@ -59,7 +63,7 @@ public class AnisotropicDiffusionNoGrad {
         this.imageBuffer =((DataBufferByte)(inputImg.getRaster().getDataBuffer())).getData();
         this.D0 = D0;
 
-//        wi.getPixelWriter().setPixels(1,1,1,1, PixelFormat.createByteIndexedInstance(colors), );
+
 
 
 //        Constructor<WritablePixelFormat> constr = null;
